@@ -1,8 +1,24 @@
 <resources>
     <string name="app_name">Rental Sepeda</string>
 
+    <!--  Login & Register  -->
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user_register_now">New user? Register Now</string>
+    <string name="already_have_an_account">Already have an account?</string>
+
+    <!--  Data User  -->
+    <string name="noktp">No KTP</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="nohp">No HP</string>
+    <string name="alamat">Alamat</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

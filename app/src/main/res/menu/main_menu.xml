@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="#FFFFFF">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/home"
-            android:title="Home" />
-        <item
-            android:id="@+id/add"
-            android:title="Add" />
-        <item
-            android:id="@+id/logout"
-            android:title="Logout" />
-    </group>
+    <item
+        android:id="@+id/dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="Home"
+        app:cnb_iconColor="#03A9F4"
+        app:cnb_textColor="#03A9F4" />
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_history"
+        android:title="History"
+        app:cnb_iconColor="#03A9F4"
+        app:cnb_textColor="#03A9F4" />
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notification"
+        app:cnb_iconColor="#03A9F4"
+        app:cnb_textColor="#03A9F4" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person"
+        android:title="Profile"
+        app:cnb_backgroundColor="#E203A9F4"
+        app:cnb_iconColor="#FFFFFF"
+        app:cnb_textColor="#FFFFFF" />
 
 </menu>

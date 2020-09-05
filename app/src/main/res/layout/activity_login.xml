@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="60dp"
             android:orientation="vertical">
 
@@ -73,39 +73,45 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/inputEmail"
+                        android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/edittext_border"
-                        android:drawableLeft="@drawable/ic_email"
-                        android:hint="Email"
+                        android:background="@drawable/input_custom"
+                        android:drawableStart="@drawable/ic_email_custom"
+                        android:hint="@string/email"
                         android:inputType="text"
-                        android:padding="16dp" />
+                        android:padding="10dp" />
 
-                    <EditText
-                        android:id="@+id/inputPassword"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_password"
+                        app:passwordToggleEnabled="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/edittext_border"
-                        android:drawableLeft="@drawable/ic_lock"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:padding="16dp" />
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/input_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:background="@drawable/input_custom"
+                            android:drawableStart="@drawable/ic_lock_custom"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:padding="10dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
-                        android:id="@+id/forgotpassword"
+                        android:id="@+id/forgot_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginTop="20dp"
-                        android:text="forgot password?"
+                        android:text="@string/forgot_password"
                         android:textColor="@color/blue"
                         android:textSize="11dp" />
 
                     <Button
-                        android:id="@+id/btnLogin"
+                        android:id="@+id/btn_login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -116,13 +122,12 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txtRegister"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
-                        android:onClick="register"
-                        android:text="New user? Register Now"
+                        android:onClick="btn_text_register"
+                        android:text="@string/new_user_register_now"
                         android:textColor="@color/blue"
                         android:textSize="15sp"
                         android:textStyle="bold" />

@@ -1,47 +1,138 @@
 package com.example.chiza12rpl012018;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.example.chiza12rpl012018.Fragment.DashboardFragment;
+import com.example.chiza12rpl012018.Fragment.HistoryFragment;
+import com.example.chiza12rpl012018.Fragment.NotificationFragment;
+import com.example.chiza12rpl012018.Fragment.ProfileFragment;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+//import com.example.chiza12rpl012018.Adapter.Adapter;
+//import com.example.chiza12rpl012018.Model.Model;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SplashScreen = 1700;
-
-    Animation topAnim, bottomAnim;
-    ImageView imgLogo;
-    TextView txtLogo;
+    //    DrawerLayout drawerLayout;
+//    NavigationView navigationView;
+//    Toolbar toolbar;
+//    RecyclerView recyclerView;
+//    Adapter adapter;
+    private static final String TAG = SplashscreenActivity.class.getSimpleName();
+    ChipNavigationBar bottomNav;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Animations
-        topAnim = AnimationUtils.loadAnimation(this, R.anim.left_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+//        drawerLayout = findViewById(R.id.drawer_layout);
+//        navigationView = findViewById(R.id.nav_view);
+//        toolbar = findViewById(R.id.toolbar);
+//        recyclerView = findViewById(R.id.recyclerview);
 
-        imgLogo = findViewById(R.id.imageLogo);
-        txtLogo = findViewById(R.id.textLogo);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        adapter = new Adapter(this, getList());
+//        recyclerView.setAdapter(adapter);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //toolbar.setNavigationIcon(R.drawable.ic_toolbar);
+//        toolbar.setTitle("");
+//        toolbar.setSubtitle("");
+        //toolbar.setLogo(R.drawable.ic_toolbar);
 
-        imgLogo.setAnimation(topAnim);
-        txtLogo.setAnimation(topAnim);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
 
-        new Handler().postDelayed(new Runnable() {
+        bottomNav = findViewById(R.id.nav_bottom);
+
+        if (savedInstanceState == null) {
+            bottomNav.setItemSelected(R.id.home, true);
+            fragmentManager = getSupportFragmentManager();
+            DashboardFragment dashboardFragment = new DashboardFragment();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, dashboardFragment)
+                    .commit();
+        }
+        bottomNav.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+            public void onItemSelected(int i) {
+                Fragment fragment = null;
+                switch (i) {
+                    case R.id.dashboard:
+                        fragment = new DashboardFragment();
+                        break;
+                    case R.id.history:
+                        fragment = new HistoryFragment();
+                        break;
+                    case R.id.notification:
+                        fragment = new NotificationFragment();
+                        break;
+                    case R.id.profile:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                if (fragment != null) {
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, fragment)
+                            .commit();
+                }else {
+                    Log.e (TAG, "Error in creating fragment");
+                }
             }
-        },SplashScreen);
+        });
     }
+
+//    private ArrayList<Model> getList() {
+//        ArrayList<Model> models = new ArrayList<>();
+//
+//        Model m = new Model();
+//        m.setTxtname("Sepeda");
+//        m.setTxtdesc("descriptions");
+//        m.setImg(R.drawable.killua);
+//        models.add(m);
+//
+//        m = new Model();
+//        m.setTxtname("Sepeda");
+//        m.setTxtdesc("descriptions");
+//        m.setImg(R.drawable.killua);
+//        models.add(m);
+//
+//        m = new Model();
+//        m.setTxtname("Sepeda");
+//        m.setTxtdesc("descriptions");
+//        m.setImg(R.drawable.killua);
+//        models.add(m);
+//
+//        m = new Model();
+//        m.setTxtname("Sepeda");
+//        m.setTxtdesc("descriptions");
+//        m.setImg(R.drawable.killua);
+//        models.add(m);
+//
+//        m = new Model();
+//        m.setTxtname("Sepeda");
+//        m.setTxtdesc("descriptions");
+//        m.setImg(R.drawable.killua);
+//        models.add(m);
+//
+//        return models;
+//    }
+//    public void onBackPressed() {
+//        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+//            drawerLayout.closeDrawer(GravityCompat.START);
+//        }else {
+//            super.onBackPressed();
+//        }
+//    }
 }
