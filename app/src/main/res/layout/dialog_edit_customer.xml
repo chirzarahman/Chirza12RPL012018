@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="8sp">
+
+        <EditText
+            android:id="@+id/input_noktp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_border"
+            android:drawableLeft="@drawable/ic_perm_identity"
+            android:drawablePadding="10dp"
+            android:hint="@string/noktp"
+            android:inputType="text"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/input_nama"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_border"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:hint="@string/nama"
+            android:inputType="text"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/input_email"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_border"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:hint="@string/email"
+            android:inputType="text"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/input_nohp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_border"
+            android:drawableLeft="@drawable/ic_contact_phone"
+            android:drawablePadding="10dp"
+            android:hint="@string/nohp"
+            android:inputType="text"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:id="@+id/input_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_border"
+            android:drawableLeft="@drawable/ic_house"
+            android:drawablePadding="10dp"
+            android:hint="@string/alamat"
+            android:inputType="text"
+            android:paddingLeft="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:layout_toLeftOf="@id/btn_delete"
+                android:background="@drawable/btn_customer_background"
+                android:drawableLeft="@drawable/ic_edit"
+                android:padding="5dp"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"/>
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/btn_delete_customer_background"
+                android:drawableLeft="@drawable/ic_delete"
+                android:padding="5dp"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_marginLeft="8dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

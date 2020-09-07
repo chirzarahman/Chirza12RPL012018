@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.chiza12rpl012018.Fragment.CustomersFragment;
 import com.example.chiza12rpl012018.Fragment.DashboardFragment;
 import com.example.chiza12rpl012018.Fragment.HistoryFragment;
 import com.example.chiza12rpl012018.Fragment.NotificationFragment;
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.notification:
                         fragment = new NotificationFragment();
+                        break;
+                    case R.id.customers:
+                        fragment = new CustomersFragment();
                         break;
                     case R.id.profile:
                         fragment = new ProfileFragment();
