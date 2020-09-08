@@ -3,6 +3,8 @@ package com.example.chiza12rpl012018.Fragment;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -98,9 +100,11 @@ public class CustomersFragment extends Fragment {
         btnEdit = view.findViewById(R.id.btn_edit);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerview);
-        CustomersAdapter customersAdapter = new CustomersAdapter(getContext(), models);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(customersAdapter);
+        getData();
+
+//        CustomersAdapter customersAdapter = new CustomersAdapter(getContext(), models);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setAdapter(customersAdapter);
 
         return view;
     }
@@ -109,17 +113,17 @@ public class CustomersFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getData();
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                View dlgView = LayoutInflater.from(CustomersFragment.this).inflate(R.layout.dialog_profile, null);
-//                final Dialog dialog = new Dialog(AdminActivity.this, android.R.style.Theme_Material_Dialog);
-//                TvDialog2 = (TextView) dlgView.findViewById(R.id.tvNamaProfile);
-//                TvDialog2.setText(nama);
-            }
-        });
+//        btnEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                View dlgView = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_edit_customer, null);
+//                final Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog);
+//                dialog.setContentView(dlgView);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//            }
+//        });
     }
 
     private void getData(){
@@ -151,8 +155,8 @@ public class CustomersFragment extends Fragment {
 
                                     CustomersModel cum = new CustomersModel();
                                     cum.setProfile(R.drawable.logo);
-                                    cum.setLocation(u_alamat);
                                     cum.setName(u_nama);
+                                    cum.setLocation(u_alamat);
 
                                     models.add(cum);
                                 }
@@ -160,6 +164,9 @@ public class CustomersFragment extends Fragment {
                             } else {
                                 Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                             }
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                            CustomersAdapter customersAdapter = new CustomersAdapter(getContext(),models);
+                            recyclerView.setAdapter(customersAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

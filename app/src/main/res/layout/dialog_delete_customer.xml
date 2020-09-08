@@ -11,58 +11,22 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <EditText
-            android:id="@+id/input_noktp"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/ic_perm_identity"
-            android:hint="@string/noktp"
-            android:inputType="text" />
+            android:layout_gravity="center"
+            android:text="Delete"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/input_nama"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_person"
-            android:drawablePadding="10dp"
-            android:hint="@string/nama"
-            android:inputType="text"
-            android:paddingLeft="10dp" />
-
-        <EditText
-            android:id="@+id/input_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_email_focused"
-            android:drawablePadding="10dp"
-            android:hint="@string/email"
-            android:inputType="text"
-            android:paddingLeft="10dp" />
-
-        <EditText
-            android:id="@+id/input_nohp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_contact_phone"
-            android:drawablePadding="10dp"
-            android:hint="@string/nohp"
-            android:inputType="text"
-            android:paddingLeft="10dp" />
-
-        <EditText
-            android:id="@+id/input_alamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_house"
-            android:drawablePadding="10dp"
-            android:hint="@string/alamat"
-            android:inputType="text"
-            android:paddingLeft="10dp" />
+            android:layout_gravity="center"
+            android:text="Are you sure you want to delete?"
+            android:textColor="@color/grey"
+            android:textSize="15sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,24 +50,22 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="0dp"
-                    android:layout_toLeftOf="@id/btn_delete"
+                    android:layout_toLeftOf="@id/btn_no"
                     android:background="@drawable/btn_customer_background"
-                    android:drawableLeft="@drawable/ic_edit"
                     android:padding="5dp"
-                    android:text="Save"
+                    android:text="Yes"
                     android:textColor="@color/white"
                     android:textSize="12dp" />
 
                 <Button
-                    android:id="@+id/btn_delete"
+                    android:id="@+id/btn_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="0dp"
                     android:background="@drawable/btn_delete_customer_background"
-                    android:drawableLeft="@drawable/ic_delete"
                     android:padding="5dp"
-                    android:text="Cancel"
+                    android:text="No"
                     android:textColor="@color/white"
                     android:textSize="12dp" />
 
