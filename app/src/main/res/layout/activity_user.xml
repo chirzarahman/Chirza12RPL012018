@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="6dp">
+    android:layout_height="match_parent"
+    tools:context=".UserActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,38 +13,29 @@
         android:padding="10dp">
 
         <EditText
-            android:id="@+id/input_noktp"
+            android:id="@+id/et_noktp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/ic_perm_identity"
+            android:drawablePadding="10dp"
             android:hint="@string/noktp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:paddingLeft="10dp" />
 
         <EditText
-            android:id="@+id/input_nama"
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="10dp"
-            android:hint="@string/nama"
+            android:hint="@string/name"
             android:inputType="text"
             android:paddingLeft="10dp" />
 
         <EditText
-            android:id="@+id/input_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_email_focused"
-            android:drawablePadding="10dp"
-            android:hint="@string/email"
-            android:inputType="text"
-            android:paddingLeft="10dp" />
-
-        <EditText
-            android:id="@+id/input_nohp"
+            android:id="@+id/et_nohp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -54,13 +46,13 @@
             android:paddingLeft="10dp" />
 
         <EditText
-            android:id="@+id/input_alamat"
+            android:id="@+id/et_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/ic_house"
             android:drawablePadding="10dp"
-            android:hint="@string/alamat"
+            android:hint="@string/address"
             android:inputType="text"
             android:paddingLeft="10dp" />
 
@@ -81,7 +73,7 @@
                 android:padding="5dp">
 
                 <Button
-                    android:id="@+id/btn_edits"
+                    android:id="@+id/btn_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -103,7 +95,7 @@
                     android:background="@drawable/btn_delete_customer_background"
                     android:drawableLeft="@drawable/ic_delete"
                     android:padding="5dp"
-                    android:text="Cancel"
+                    android:text="Delete"
                     android:textColor="@color/white"
                     android:textSize="12dp" />
 
@@ -112,4 +104,5 @@
         </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+</RelativeLayout>

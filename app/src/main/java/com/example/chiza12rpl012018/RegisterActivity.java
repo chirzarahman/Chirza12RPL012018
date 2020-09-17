@@ -26,20 +26,20 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     private Button btnRegister;
-    private EditText etEmail, etNama, etNoktp, etNohp, etAlamat, etConfirmpass;
+    private EditText etEmail, etName, etNoktp, etNohp, etAddress, etConfirmpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        btnRegister = findViewById(R.id.btnL_register);
-        etNama = findViewById(R.id.input_nama);
-        etEmail = findViewById(R.id.input_email);
-        etNoktp = findViewById(R.id.input_noktp);
-        etNohp = findViewById(R.id.input_nohp);
-        etAlamat = findViewById(R.id.input_alamat);
-        etConfirmpass = findViewById(R.id.input_confirmpassword);
+        btnRegister = findViewById(R.id.btn_register);
+        etName = findViewById(R.id.et_register_name);
+        etEmail = findViewById(R.id.et_register_email);
+        etNoktp = findViewById(R.id.et_register_noktp);
+        etNohp = findViewById(R.id.et_register_nohp);
+        etAddress = findViewById(R.id.et_register_address);
+        etConfirmpass = findViewById(R.id.et_register_confirmpass);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             View decorView = getWindow().getDecorView(); //set status background black
@@ -50,19 +50,19 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama = etNama.getText().toString();
+                String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
                 String noktp = etNoktp.getText().toString();
                 String nohp = etNohp.getText().toString();
-                String alamat = etAlamat.getText().toString();
+                String address = etAddress.getText().toString();
                 String confirmpassword = etConfirmpass.getText().toString();
 
                 HashMap<String, String> body = new HashMap<>();
-                body.put("nama", nama);
+                body.put("nama", name);
                 body.put("email", email);
                 body.put("noktp", noktp);
                 body.put("nohp", nohp);
-                body.put("alamat", alamat);
+                body.put("alamat", address);
                 body.put("roleuser", "2");
                 body.put("password", confirmpassword);
 

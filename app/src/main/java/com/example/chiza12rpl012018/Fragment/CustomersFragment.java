@@ -1,35 +1,23 @@
 package com.example.chiza12rpl012018.Fragment;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.example.chiza12rpl012018.Adapter.CustomersAdapter;
-import com.example.chiza12rpl012018.Adapter.DashboardAdapter;
-import com.example.chiza12rpl012018.LoginActivity;
-import com.example.chiza12rpl012018.MainActivity;
 import com.example.chiza12rpl012018.Model.CustomersModel;
-import com.example.chiza12rpl012018.Model.DashboardModel;
 import com.example.chiza12rpl012018.R;
 
 import org.json.JSONArray;
@@ -39,57 +27,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-///**
-// * A simple {@link Fragment} subclass.
-// * Use the {@link CustomersFragment#newInstance} factory method to
-// * create an instance of this fragment.
-// */
 public class CustomersFragment extends Fragment {
 
-    View view;
     private RecyclerView recyclerView;
     private List<CustomersModel> models = new ArrayList<>();
-    private Button btnEdit;
-
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
 
     public CustomersFragment() {
         // Required empty public constructor
     }
-
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment CustomersFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static CustomersFragment newInstance(String param1, String param2) {
-//        CustomersFragment fragment = new CustomersFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,9 +42,7 @@ public class CustomersFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = (View) inflater.inflate(R.layout.fragment_customers, container, false);
 
-        btnEdit = view.findViewById(R.id.btn_edit);
-
-        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         getData();
 
 //        CustomersAdapter customersAdapter = new CustomersAdapter(getContext(), models);
@@ -126,9 +69,8 @@ public class CustomersFragment extends Fragment {
 //        });
     }
 
-    private void getData(){
-
-        AndroidNetworking.get("http://192.168.43.31/project/rental_sepeda/users.php")
+    private void getData() {
+        AndroidNetworking.get("http://192.168.43.31/project/rental_sepeda/show_user.php")
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -137,26 +79,29 @@ public class CustomersFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         // do anything with response
                         try {
-                            String status = response.getString("Status");
-                            String message = response.getString("Message");
+                            String status = response.getString("status");
+                            String message = response.getString("message");
                             if (status.equals("success")) {
-                                JSONObject data = response.getJSONObject("Data");
-                                JSONArray customers = data.getJSONArray("customers");
-                                for (int i = 0; i<customers.length(); i++){
+                                JSONObject data = response.getJSONObject("payload");
+                                JSONArray customers = data.getJSONArray("data");
+                                for (int i = 0; i < customers.length(); i++) {
                                     JSONObject payload = customers.getJSONObject(i);
-                                    String u_id = payload.optString("id");
-                                    String u_nama = payload.optString("Nama");
-                                    String u_email = payload.optString("Email");
-                                    String u_noktp = payload.optString("No.KTP");
-                                    String u_nohp = payload.optString("No.Hp");
-                                    String u_alamat = payload.optString("Alamat");
-                                    String role = payload.optString("Role User");
-                                    System.out.println(models.size() + " anj");
+                                    String u_id = payload.optString("ID");
+                                    String u_name = payload.optString("NAMA");
+                                    String u_email = payload.optString("EMAIL");
+                                    String u_noktp = payload.optString("NOKTP");
+                                    String u_nohp = payload.optString("NOHP");
+                                    String u_address = payload.optString("ALAMAT");
+                                    String u_role = payload.optString("ROLE");
 
                                     CustomersModel cum = new CustomersModel();
                                     cum.setProfile(R.drawable.logo);
-                                    cum.setName(u_nama);
-                                    cum.setLocation(u_alamat);
+                                    cum.setId(u_id);
+                                    cum.setName(u_name);
+                                    cum.setEmail(u_email);
+                                    cum.setNoktp(u_noktp);
+                                    cum.setNohp(u_nohp);
+                                    cum.setAddress(u_address);
 
                                     models.add(cum);
                                 }
@@ -165,13 +110,14 @@ public class CustomersFragment extends Fragment {
                                 Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                             }
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                            CustomersAdapter customersAdapter = new CustomersAdapter(getContext(),models);
+                            CustomersAdapter customersAdapter = new CustomersAdapter(getContext(), models);
                             recyclerView.setAdapter(customersAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         Log.d("test", String.valueOf(response));
                     }
+
                     @Override
                     public void onError(ANError error) {
                         // handle error

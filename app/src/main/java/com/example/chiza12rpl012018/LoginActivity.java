@@ -27,18 +27,18 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
 
-    SharedPreferences preferences;
-    EditText etEmail,etPassword;
-    Button btnLogin;
-    private String email, password, token;
+    private SharedPreferences preferences;
+    private EditText etEmail, etPassword;
+    private Button btnLogin;
+    private String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etEmail = (EditText) findViewById(R.id.input_email);
-        etPassword = (EditText) findViewById(R.id.input_password);
+        etEmail = (EditText) findViewById(R.id.et_login_email);
+        etPassword = (EditText) findViewById(R.id.et_login_password);
         btnLogin = (Button) findViewById(R.id.btn_login);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -80,20 +80,20 @@ public class LoginActivity extends AppCompatActivity {
                                         if (status.equals("success")) {
                                             JSONObject payload = response.getJSONObject("payload");
                                             String u_id = payload.optString("LOGIN_ID");
-                                            String u_nama = payload.optString("LOGIN_NAMA");
+                                            String u_name = payload.optString("LOGIN_NAMA");
                                             String u_email = payload.optString("LOGIN_EMAIL");
                                             String u_noktp = payload.optString("LOGIN_NOKTP");
                                             String u_nohp = payload.optString("LOGIN_NOHP");
-                                            String u_alamat = payload.optString("LOGIN_ALAMAT");
+                                            String u_address = payload.optString("LOGIN_ALAMAT");
 
-                                            preferences = getSharedPreferences("data users", Context.MODE_PRIVATE);
+                                            preferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
                                             preferences.edit()
                                                     .putString("id", u_id)
-                                                    .putString("nama", u_nama)
+                                                    .putString("name", u_name)
                                                     .putString("email", u_email)
                                                     .putString("noktp", u_noktp)
                                                     .putString("nohp", u_nohp)
-                                                    .putString("alamat", u_alamat)
+                                                    .putString("address", u_address)
                                                     .apply();
                                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

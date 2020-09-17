@@ -33,7 +33,7 @@ import org.json.JSONObject;
 // */
 public class ProfileFragment extends Fragment {
 
-    private TextView tvNama, tvEmail, tvNoktp, tvNohp, tvAlamat;
+    private TextView tvName, tvEmail, tvNoktp, tvNohp, tvAddress;
     private Button btnLogout;
     private String id;
 
@@ -41,23 +41,14 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment ProfileFragment.
-//     */
-    // TODO: Rename and change types and number of parameters
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         final View view = (View) inflater.inflate(R.layout.fragment_profile, container, false);
 
-        tvNama = view.findViewById(R.id.tv_nama);
+        tvName = view.findViewById(R.id.tv_name);
         tvEmail = view.findViewById(R.id.tv_email);
         tvNoktp = view.findViewById(R.id.tv_noktp);
         tvNohp = view.findViewById(R.id.tv_nohp);
-        tvAlamat = view.findViewById(R.id.tv_alamat);
+        tvAddress = view.findViewById(R.id.tv_address);
         btnLogout = view.findViewById(R.id.btn_logout);
 
         Window window = getActivity().getWindow();
@@ -67,15 +58,24 @@ public class ProfileFragment extends Fragment {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(getActivity().getResources().getColor(R.color.blue));
 
-        SharedPreferences preferences = getActivity().getSharedPreferences("data users", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
         String email = preferences.getString("email", "");
+        String name = preferences.getString("name", "");
+        String noktp = preferences.getString("noktp", "");
+        String nohp = preferences.getString("nohp", "");
+        String address = preferences.getString("address", "");
+
         tvEmail.setText(email);
+        tvName.setText(name);
+        tvNoktp.setText(noktp);
+        tvNohp.setText(nohp);
+        tvAddress.setText(address);
         System.out.println("test " + email);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("data users", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
                 editor.apply();
@@ -83,61 +83,6 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-//        fetchProfile();
-
         return view;
     }
-
-    public void fetchProfile() {
-//        AndroidNetworking.get("http://192.168.43.31/project/rental_sepeda/users.php")
-//                .addPathParameter("id", id)
-//                .setPriority(Priority.LOW)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            JSONObject data = response.getJSONObject("data");
-//                            String name = data.getString("name");
-//                            String email = data.getString("email");
-//
-//                            tvNama.setText(name);
-//                            tvEmail.setText(email);
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(ANError anError) {
-//
-//                    }
-//                });
-    }
-//    public static ProfileFragment newInstance(String param1, String param2) {
-//        ProfileFragment fragment = new ProfileFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_profile, container, false);
-//    }
 }

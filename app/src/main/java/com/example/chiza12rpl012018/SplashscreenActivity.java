@@ -19,7 +19,6 @@ import static android.os.Build.ID;
 public class SplashscreenActivity extends AppCompatActivity {
 
     private static int SplashScreen = 1150;
-
     private Animation topAnim, bottomAnim;
     private ImageView imgLogo;
     private TextView txtLogo;
@@ -40,7 +39,7 @@ public class SplashscreenActivity extends AppCompatActivity {
         imgLogo.setAnimation(topAnim);
         txtLogo.setAnimation(topAnim);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("data users", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         id = sharedPreferences.getString("id", "");
 
         new Handler().postDelayed(new Runnable() {
