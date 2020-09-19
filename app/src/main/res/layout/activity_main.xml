@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/nav_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/rounded"
-        android:elevation="15dp"
-        android:padding="7dp"
-        app:cnb_menuResource="@menu/main_menu" />
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            android:id="@+id/nav_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/rounded"
+            android:elevation="15dp"
+            android:padding="7dp"
+            app:cnb_menuResource="@menu/main_menu" />
 
 </RelativeLayout>

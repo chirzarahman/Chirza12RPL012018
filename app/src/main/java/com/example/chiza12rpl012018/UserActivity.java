@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -37,6 +38,10 @@ public class UserActivity extends AppCompatActivity {
         etNoktp = findViewById(R.id.et_noktp);
         etNohp = findViewById(R.id.et_nohp);
         etAddress = findViewById(R.id.et_address);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getData();
 
         btnEdit = findViewById(R.id.btn_edit);
@@ -185,5 +190,11 @@ public class UserActivity extends AppCompatActivity {
                         Log.d("anError", error.getLocalizedMessage());
                     }
                 });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

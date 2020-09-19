@@ -23,7 +23,7 @@
         app:cnb_textColor="#03A9F4" />
     <item
         android:id="@+id/customers"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/ic_people"
         android:title="Customers"
         app:cnb_iconColor="#03A9F4"
         app:cnb_textColor="#03A9F4" />
@@ -31,8 +31,7 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"
         android:title="Profile"
-        app:cnb_backgroundColor="#E203A9F4"
-        app:cnb_iconColor="#FFFFFF"
-        app:cnb_textColor="#FFFFFF" />
+        app:cnb_iconColor="#03A9F4"
+        app:cnb_textColor="#03A9F4" />
 
 </menu>

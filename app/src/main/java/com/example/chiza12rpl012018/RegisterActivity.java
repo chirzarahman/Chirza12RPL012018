@@ -1,6 +1,5 @@
 package com.example.chiza12rpl012018;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -84,8 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                     finishAffinity();
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
 
                                 }
@@ -100,7 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    public void login (View View){
+
+    public void btn_tv_login(View View) {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }

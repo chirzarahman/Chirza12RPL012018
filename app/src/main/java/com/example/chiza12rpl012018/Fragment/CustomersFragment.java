@@ -1,5 +1,7 @@
 package com.example.chiza12rpl012018.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -31,6 +34,8 @@ public class CustomersFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<CustomersModel> models = new ArrayList<>();
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     public CustomersFragment() {
         // Required empty public constructor
@@ -41,13 +46,19 @@ public class CustomersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = (View) inflater.inflate(R.layout.fragment_customers, container, false);
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-        getData();
 
-//        CustomersAdapter customersAdapter = new CustomersAdapter(getContext(), models);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        recyclerView.setAdapter(customersAdapter);
+        swipeRefreshLayout = view.findViewById(R.id.refreshlist);
+        swipeRefreshLayout.setRefreshing(false);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                models.clear();
+                getData();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+        getData();
 
         return view;
     }
@@ -55,18 +66,6 @@ public class CustomersFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                View dlgView = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_edit_customer, null);
-//                final Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog);
-//                dialog.setContentView(dlgView);
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                dialog.show();
-//            }
-//        });
     }
 
     private void getData() {

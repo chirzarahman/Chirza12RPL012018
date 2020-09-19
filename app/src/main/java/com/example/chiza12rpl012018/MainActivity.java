@@ -1,8 +1,12 @@
 package com.example.chiza12rpl012018;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = SplashscreenActivity.class.getSimpleName();
     ChipNavigationBar bottomNav;
     FragmentManager fragmentManager;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
 //        toggle.syncState();
 
         bottomNav = findViewById(R.id.nav_bottom);
+
+        sharedPreferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
+        final String role = sharedPreferences.getString("role", "");
+
+        if (role.equalsIgnoreCase("Customer")) {
+            bottomNav.setItemEnabled(R.id.customers, false);
+        }
 
         if (savedInstanceState == null) {
             bottomNav.setItemSelected(R.id.home, true);

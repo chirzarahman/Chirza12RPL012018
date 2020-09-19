@@ -69,6 +69,16 @@ public class DashboardFragment extends Fragment {
         models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
         models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
         models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
+        models.add(new DashboardModel(R.drawable.logo, "Polygon", "Standart"));
     }
 //    public static DashboardFragment newInstance(String param1, String param2) {
 //        DashboardFragment fragment = new DashboardFragment();

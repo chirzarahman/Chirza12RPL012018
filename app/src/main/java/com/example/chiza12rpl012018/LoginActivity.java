@@ -18,8 +18,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.example.chiza12rpl012018.Fragment.DashboardFragment;
-import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                                             String u_noktp = payload.optString("LOGIN_NOKTP");
                                             String u_nohp = payload.optString("LOGIN_NOHP");
                                             String u_address = payload.optString("LOGIN_ALAMAT");
+                                            String u_role = payload.optString("ROLE");
 
                                             preferences = getSharedPreferences("pref", Context.MODE_PRIVATE);
                                             preferences.edit()
@@ -94,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     .putString("noktp", u_noktp)
                                                     .putString("nohp", u_nohp)
                                                     .putString("address", u_address)
+                                                    .putString("role", u_role)
                                                     .apply();
                                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                     Log.d("test", String.valueOf(response));
                                 }
+
                                 @Override
                                 public void onError(ANError error) {
                                     // handle error
@@ -118,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void btn_text_register(View View) {
+    public void btn_tv_register(View View) {
         startActivity(new Intent(this, RegisterActivity.class));
         finish();
     }

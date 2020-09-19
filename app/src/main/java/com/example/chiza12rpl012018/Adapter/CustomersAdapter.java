@@ -80,7 +80,6 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
                 Intent intent = new Intent(v.getContext(), UserActivity.class);
                 intent.putExtra("u_id", model.getId());
                 v.getContext().startActivity(intent);
-                ((FragmentActivity)mContext).finish();
             }
         });
 
