@@ -50,33 +50,33 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <EditText
+        <Button
+            android:id="@+id/btn_addbike"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/search_background"
-            android:drawableRight="@drawable/ic_search"
-            android:elevation="7dp"
-            android:ems="10"
-            android:hint="Search"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_customer_background"
+            android:padding="5dp"
+            android:text="Add"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/appbar">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+        android:layout_below="@+id/appbar"
+        android:layout_marginBottom="170px">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshlist"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
 </RelativeLayout>

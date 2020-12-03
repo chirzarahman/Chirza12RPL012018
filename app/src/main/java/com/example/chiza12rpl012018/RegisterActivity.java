@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 body.put("roleuser", "2");
                 body.put("password", confirmpassword);
 
-                AndroidNetworking.post("http://192.168.43.31/project/rental_sepeda/register.php")
+                AndroidNetworking.post("http://192.168.43.31/project/api_android/rental_sepeda/register.php")
                         .addBodyParameter(body)
                         .setTag("test")
                         .setPriority(Priority.MEDIUM)

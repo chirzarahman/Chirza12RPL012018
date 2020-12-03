@@ -16,6 +16,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.example.chiza12rpl012018.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +69,7 @@ public class UserActivity extends AppCompatActivity {
 
     private void getData() {
         String id = getIntent().getStringExtra("u_id");
-        AndroidNetworking.post("http://192.168.43.31/project/rental_sepeda/detail_user.php")
+        AndroidNetworking.post("http://192.168.43.31/project/api_android/rental_sepeda/detail_user.php")
                 .addBodyParameter("id", id)
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
@@ -123,7 +124,7 @@ public class UserActivity extends AppCompatActivity {
         body.put("nohp", nohp);
         body.put("address", address);
 
-        AndroidNetworking.post("http://192.168.43.31/project/rental_sepeda/edit_user.php")
+        AndroidNetworking.post("http://192.168.43.31/project/api_android/rental_sepeda/edit_user.php")
                 .addBodyParameter(body)
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -157,7 +158,7 @@ public class UserActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         String id_auth = sharedPreferences.getString("id", "");
         String id = getIntent().getStringExtra("u_id");
-        AndroidNetworking.post("http://192.168.43.31/project/rental_sepeda/delete_user.php")
+        AndroidNetworking.post("http://192.168.43.31/project/api_android/rental_sepeda/delete_user.php")
                 .addBodyParameter("id", id)
                 .addBodyParameter("id_auth", id_auth)
                 .setTag("test")

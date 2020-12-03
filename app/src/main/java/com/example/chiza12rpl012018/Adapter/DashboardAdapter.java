@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.chiza12rpl012018.Model.DashboardModel;
 import com.example.chiza12rpl012018.R;
 
@@ -36,9 +37,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Hold
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
-        holder.image.setImageResource(mData.get(position).getImage());
-        holder.title.setText(mData.get(position).getTitle());
-        holder.description.setText(mData.get(position).getDescription());
+//        holder.image.setText(mData.get(position).getImage());
+//        holder.kode.setText(mData.get(position).getKode());
+        holder.merk.setText(mData.get(position).getMerk());
+//        holder.warna.setText(mData.get(position).getWarna());
+        holder.hargasewa.setText(mData.get(position).getHargasewa());
+        String imageUrl = "http://192.168.43.31/project/api_android/rental_sepeda/upload/" + mData.get(position).getImage();
+        System.out.println(imageUrl);
+        Glide
+                .with(this.mContext)
+                .load(imageUrl)
+                .into(holder.image);
 
     }
 
@@ -50,15 +59,15 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Hold
     public static class Holder extends RecyclerView.ViewHolder {
 
         private ImageView image;
-        private TextView title;
-        private TextView description;
+        private TextView merk;
+        private TextView hargasewa;
 
         public Holder(View view) {
             super(view);
 
-            image = (ImageView) view.findViewById(R.id.img_icon);
-            title = (TextView)view.findViewById(R.id.txt_title);
-            description = (TextView)view.findViewById(R.id.txt_description);
+            image = (ImageView) view.findViewById(R.id.img);
+            merk = (TextView)view.findViewById(R.id.txt_merk);
+            hargasewa = (TextView)view.findViewById(R.id.txt_harga);
         }
     }
 }

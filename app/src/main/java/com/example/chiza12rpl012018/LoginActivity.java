@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if (!isEmpty) {
-                    AndroidNetworking.post("http://192.168.43.31/project/rental_sepeda/login.php")
+                    AndroidNetworking.post("http://192.168.43.31/project/api_android/rental_sepeda/login.php")
                             .addBodyParameter("email", etEmail.getText().toString().trim())
                             .addBodyParameter("password", etPassword.getText().toString().trim())
                             .setTag("test")

@@ -3,6 +3,8 @@
     package="com.example.chiza12rpl012018">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".AddbikeActivity"></activity>
         <activity android:name=".UserActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />

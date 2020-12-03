@@ -69,7 +69,7 @@ public class CustomersFragment extends Fragment {
     }
 
     private void getData() {
-        AndroidNetworking.get("http://192.168.43.31/project/rental_sepeda/show_user.php")
+        AndroidNetworking.get("http://192.168.43.31/project/api_android/rental_sepeda/show_user.php")
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
                 .build()
